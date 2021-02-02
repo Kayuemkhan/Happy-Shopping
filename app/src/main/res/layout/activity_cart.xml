@@ -14,17 +14,16 @@
         android:layout_alignParentTop="true"
         >
         <TextView
-            android:layout_margin="5dp"
+            android:layout_margin="10dp"
             android:id="@+id/total_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="মোট মুল্যঃ  "
+            android:text="Total Amount : "
             android:textColor="@color/White"
             android:textSize="20sp"
             android:height="50dp"
-            android:textAlignment="center"
-            android:layout_marginTop="10dp"
-            android:gravity="center_horizontal" />
+            android:textAlignment="textStart"
+            android:gravity="center" />
     </RelativeLayout>
 
     <TextView

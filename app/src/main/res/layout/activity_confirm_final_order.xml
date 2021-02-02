@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ConfirmFinalOrderActivity">
 
     <TextView
@@ -22,60 +23,100 @@
         android:textSize="25dp"
         android:textStyle="bold"
         android:gravity="center_horizontal" />
-    <EditText
-        android:padding="8dp"
-        android:background="@drawable/rectangle"
+
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="আপনার নাম দিন "
-        android:layout_below="@+id/txt"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_marginTop="50dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:textAlignment="center"
-        android:id="@+id/shippment_name"
-        android:gravity="center_horizontal" />
-    <EditText
-        android:background="@drawable/rectangle"
-        android:padding="8dp"
-        android:id="@+id/shippment_phone_number"
+        android:layout_marginBottom="10dp"
+        android:hint="Enter Your Name"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:id="@+id/shippment_name"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLength="50"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@color/blue_grey_300"
+            android:textSize="15sp"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="আপনার ফোন নাম্বার দিন"
-        android:layout_below="@+id/shippment_name"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-        android:textAlignment="center"
-        android:inputType="number"
-        android:maxLines="1"
-        android:gravity="center_horizontal" />
-    <EditText
-        android:background="@drawable/rectangle"
-        android:padding="18dp"
-        android:id="@+id/shippment_address"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:hint="Enter Your Phone Number"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:id="@+id/shippment_phone_number"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLength="50"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@color/blue_grey_300"
+            android:textSize="15sp"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="আপনার পূর্ণ ঠিকানা দিন"
-        android:layout_below="@+id/shippment_phone_number"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-        android:textAlignment="center"
-        android:gravity="center_horizontal" />
-    <EditText
-        android:padding="8dp"
-        android:background="@drawable/rectangle"
-        android:id="@+id/shipment_city"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:hint="Enter Your Address"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:id="@+id/shippment_address"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLength="50"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@color/blue_grey_300"
+            android:textSize="15sp"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="আপনার শহরের নাম। যেমনঃ ঢাকা"
-        android:layout_below="@+id/shippment_address"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-        android:textAlignment="center"
-        android:gravity="center_horizontal" />
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:hint="Your City Name, Ex: Dhaka"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:id="@+id/shipment_city"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLength="50"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@color/blue_grey_300"
+            android:textSize="15sp"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <Button
         android:id="@+id/confirm_final_order_btn"
@@ -93,4 +134,5 @@
         android:textStyle="bold" />
 
 
-</RelativeLayout>
+
+</LinearLayout>
