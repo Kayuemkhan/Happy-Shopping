@@ -6,53 +6,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SearchProductsActivity">
-    <RelativeLayout
+
+    <LinearLayout
         android:id="@+id/r5"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/colorPrimaryDark"
+        android:gravity="center"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        >
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:id="@+id/Search_Back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_back"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp" />
 
         <EditText
             android:id="@+id/search_product_name"
-            android:layout_width="250dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Product name"
+            android:hint="Search Product Here!!"
             android:textColorHint="@color/overlay_dark_10"
             android:textSize="16sp"
             android:background="@drawable/searchedittextbackground"
             android:padding="5dp"
             android:textStyle="bold"
             android:textColor="@color/Black"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginBottom="5dp"
-            />
-        <Button
-            android:id="@+id/search_btn"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="5dp"
-            android:text="Search"
-            android:padding="9dp"
-            android:textSize="10sp"
-            android:textColor="@color/White"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/search_product_name"
-            android:background="@color/colorPrimaryDark"
-            />
-    </RelativeLayout>
+            android:layout_marginRight="10dp" />
+    </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/search_list"
         android:layout_below="@+id/r5"
-        tools:listitem="@layout/products_items_layout"
-        >
-
+        tools:listitem="@layout/products_items_layout">
     </androidx.recyclerview.widget.RecyclerView>
 
 

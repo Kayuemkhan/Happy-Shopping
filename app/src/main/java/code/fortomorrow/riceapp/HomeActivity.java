@@ -55,7 +55,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         recyclerView = findViewById(R.id.recyler_menu);
         recyclerView.setHasFixedSize(true);
         //recyclerView.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this);
+        layoutManager = new GridLayoutManager(this,2);
         //recyclerView.addItemDecoration(new SpacesItemDecoration(10));
         recyclerView.setLayoutManager(layoutManager);
 
@@ -174,7 +174,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                     @Override
                     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
                     {
-                        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.products_items_layout, parent, false);
+                        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.home_products_layout, parent, false);
                         ProductViewHolder holder = new ProductViewHolder(view);
                         return holder;
                     }
