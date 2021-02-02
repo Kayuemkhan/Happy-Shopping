@@ -58,12 +58,12 @@
                 android:maxLength="50"
                 android:maxLines="1"
                 android:singleLine="true"
-
                 android:textColor="@color/blue_grey_300"
                 android:textSize="15sp"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
+
         <View
             android:layout_width="0dp"
             android:layout_height="5dp"
