@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="code.fortomorrow.riceapp">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/shop_foreground"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/shop_foreground"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon">
+        <activity android:name=".Aboutpage"></activity>
+        <activity android:name=".CategoryItemActivity" />
+        <activity android:name=".ConfirmFinalOrderActivity" />
+        <activity android:name=".ProductDetailsActivity" />
+        <activity android:name=".SettinsActivity" />
+        <activity android:name=".SearchProductsActivity" />
+        <activity android:name=".CartActivity" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity" />
+    </application>
+
+</manifest>

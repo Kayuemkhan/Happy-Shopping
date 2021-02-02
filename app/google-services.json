@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "65834630365",
+    "firebase_url": "https://rice-app-3a405.firebaseio.com",
+    "project_id": "rice-app-3a405",
+    "storage_bucket": "rice-app-3a405.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:65834630365:android:5af203ce8e6648429b6f34",
+        "android_client_info": {
+          "package_name": "code.fortomorrow.riceapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "65834630365-kfi2s7lplr08khn10f2ikbsiv3ojical.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4n55Fdt2XTOiHTRpB5IYBXKw3twLUlWU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "65834630365-kfi2s7lplr08khn10f2ikbsiv3ojical.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

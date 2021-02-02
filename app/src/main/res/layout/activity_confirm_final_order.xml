@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ConfirmFinalOrderActivity">
+
+    <TextView
+        android:id="@+id/txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="monospace"
+        android:text="Please Confirm your details: "
+        android:textAlignment="center"
+        android:textColor="@color/Black"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:gravity="center_horizontal" />
+    <EditText
+        android:padding="8dp"
+        android:background="@drawable/rectangle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="আপনার নাম দিন "
+        android:layout_below="@+id/txt"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:textAlignment="center"
+        android:id="@+id/shippment_name"
+        android:gravity="center_horizontal" />
+    <EditText
+        android:background="@drawable/rectangle"
+        android:padding="8dp"
+        android:id="@+id/shippment_phone_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="আপনার ফোন নাম্বার দিন"
+        android:layout_below="@+id/shippment_name"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:textAlignment="center"
+        android:inputType="number"
+        android:maxLines="1"
+        android:gravity="center_horizontal" />
+    <EditText
+        android:background="@drawable/rectangle"
+        android:padding="18dp"
+        android:id="@+id/shippment_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="আপনার পূর্ণ ঠিকানা দিন"
+        android:layout_below="@+id/shippment_phone_number"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:textAlignment="center"
+        android:gravity="center_horizontal" />
+    <EditText
+        android:padding="8dp"
+        android:background="@drawable/rectangle"
+        android:id="@+id/shipment_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="আপনার শহরের নাম। যেমনঃ ঢাকা"
+        android:layout_below="@+id/shippment_address"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:textAlignment="center"
+        android:gravity="center_horizontal" />
+
+    <Button
+        android:id="@+id/confirm_final_order_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/colorPrimaryDark"
+        android:fontFamily="casual"
+        android:text="C O N F I R M"
+        android:textColor="@color/White"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>
