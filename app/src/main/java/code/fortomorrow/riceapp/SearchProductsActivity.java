@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -22,30 +23,28 @@ import com.squareup.picasso.Picasso;
 import code.fortomorrow.riceapp.ViewHolder.ProductViewHolder;
 
 public class SearchProductsActivity extends AppCompatActivity {
-    private Button SearchBtn;
+
     private EditText inputText;
     private RecyclerView searchList;
     private String SearchInput;
+    private ImageView BackBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_products);
 
+        BackBtn = findViewById(R.id.Search_Back);
+        BackBtn.setOnClickListener(v->{
+            startActivity(new Intent(this,HomeActivity.class));
+            finish();
+        });
+
         inputText = findViewById(R.id.search_product_name);
-        SearchBtn = findViewById(R.id.search_btn);
         searchList = findViewById(R.id.search_list);
         searchList.setLayoutManager(new LinearLayoutManager(this));
 
         searchList.setHasFixedSize(true);
-
-        SearchBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SearchInput = inputText.getText().toString();
-                onStart();
-            }
-        });
 
     }
 

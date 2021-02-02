@@ -58,6 +58,7 @@
                 android:maxLength="50"
                 android:maxLines="1"
                 android:singleLine="true"
+
                 android:textColor="@color/blue_grey_300"
                 android:textSize="15sp"
                 />
@@ -102,17 +103,7 @@
             android:textAllCaps="false"
             android:textColor="#FFF"
             android:textSize="18sp" />
-        <TextView
-            android:id="@+id/forget_password"
-            android:textSize="15sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="textEnd"
-            android:text="Forget Password?"
-            android:textStyle="bold"
-            android:textColor="@color/overlay_dark_30"
-            android:background="@color/White"
-            android:gravity="end" />
+
         <androidx.appcompat.widget.AppCompatCheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
