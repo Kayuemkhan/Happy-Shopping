@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.cardview.widget.CardView
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:cardCornerRadius="10dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
     android:background="@color/cardview_shadow_end_color"
     android:padding="10dp"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="5dp"
     tools:ignore="NewApi">
 
     <LinearLayout
@@ -25,41 +24,43 @@
 
             <ImageView
                 android:id="@+id/product_image"
-                android:padding="5dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/product_sample_image"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"/>
+                android:layout_height="120dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/product_sample_image" />
 
         </LinearLayout>
 
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_marginBottom="3dp"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="3dp">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TextView
+
                 android:id="@+id/product_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
+                android:gravity="start"
+                android:paddingLeft="5dp"
                 android:text="Product Name"
-                android:textColor="@color/Black"
+                android:textColor="@color/overlay_dark_60"
                 android:textSize="15sp"
-                android:textStyle="bold" />
+                />
 
             <TextView
+                android:textStyle="bold"
                 android:id="@+id/product_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:fontFamily="sans-serif-light"
-                android:text="$ Product Price"
+                android:gravity="start"
+                android:paddingLeft="5dp"
+                android:text="$Product Price"
                 android:textColor="@color/Black"
                 android:textSize="15sp" />
 

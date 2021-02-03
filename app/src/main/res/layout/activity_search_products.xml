@@ -8,9 +8,10 @@
     tools:context=".SearchProductsActivity">
 
     <LinearLayout
+        android:padding="8dp"
         android:id="@+id/r5"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark"
         android:gravity="center"
         android:layout_alignParentTop="true"
@@ -32,7 +33,7 @@
             android:textColorHint="@color/overlay_dark_10"
             android:textSize="16sp"
             android:background="@drawable/searchedittextbackground"
-            android:padding="5dp"
+            android:padding="13dp"
             android:textStyle="bold"
             android:textColor="@color/Black"
             android:layout_marginLeft="10dp"

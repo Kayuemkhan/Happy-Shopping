@@ -38,7 +38,9 @@
             android:textColor="@color/blue_grey_200"
             android:textStyle="bold" />
 
-
+        <View
+            android:layout_width="0dp"
+            android:layout_height="50dp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -144,7 +146,7 @@
                 android:clickable="true"
                 android:text=" R e g i s t e r  H e r e"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
-                android:textColor="@color/DarkTurquoise"
+                android:textColor="@color/colorPrimary"
                 android:textStyle="bold"
                 />
 

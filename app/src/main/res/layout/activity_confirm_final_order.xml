@@ -16,7 +16,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="15dp"
-        android:fontFamily="monospace"
+        android:fontFamily="sans-serif-light"
         android:text="Please Confirm your details: "
         android:textAlignment="center"
         android:textColor="@color/Black"
@@ -128,7 +128,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:background="@color/colorPrimaryDark"
-        android:fontFamily="casual"
+        android:fontFamily="sans-serif-light"
         android:text="C O N F I R M"
         android:textColor="@color/White"
         android:textStyle="bold" />
