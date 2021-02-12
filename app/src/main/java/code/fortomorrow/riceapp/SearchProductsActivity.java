@@ -1,12 +1,14 @@
 package code.fortomorrow.riceapp;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,10 +18,18 @@ import android.widget.ImageView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+
+import code.fortomorrow.riceapp.Adapters.OrderAdapters;
+import code.fortomorrow.riceapp.Model.Orders;
 import code.fortomorrow.riceapp.ViewHolder.ProductViewHolder;
 
 public class SearchProductsActivity extends AppCompatActivity {
@@ -28,7 +38,8 @@ public class SearchProductsActivity extends AppCompatActivity {
     private RecyclerView searchList;
     private String SearchInput;
     private ImageView BackBtn;
-
+    private ArrayList<Orders> messageList;
+    private ChildEventListener mChildEventListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,11 +50,10 @@ public class SearchProductsActivity extends AppCompatActivity {
             startActivity(new Intent(this,HomeActivity.class));
             finish();
         });
-
+        messageList = new ArrayList<>();
         inputText = findViewById(R.id.search_product_name);
         searchList = findViewById(R.id.search_list);
         searchList.setLayoutManager(new LinearLayoutManager(this));
-
         searchList.setHasFixedSize(true);
 
     }
@@ -52,38 +62,38 @@ public class SearchProductsActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Products");
-
-        FirebaseRecyclerOptions<Products> options = new FirebaseRecyclerOptions.Builder<Products>()
-                .setQuery(reference.orderByChild("pname").startAt(SearchInput).endAt(SearchInput),Products.class)
-                .build();
-
-        FirebaseRecyclerAdapter<Products, ProductViewHolder> adapter = new FirebaseRecyclerAdapter<Products, ProductViewHolder>(options) {
+        ChildEventListener childEventListener = new ChildEventListener() {
             @Override
-            protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull final Products model) {
-                holder.txtProductName.setText(model.getPname());
-                //holder.txtProductDescription.setText(model.getDescription());
-                holder.txtProductPrice.setText("Price = " + model.getPrice() + "$");
-                Picasso.get().load(model.getImage()).into(holder.imageView);
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String previousChildName) {
+                Orders message = dataSnapshot.getValue(Orders.class);
+                messageList.add(message);
+                OrderAdapters orderAdapters = new OrderAdapters(SearchProductsActivity.this,messageList);
+                searchList.setAdapter(orderAdapters);
 
-                holder.itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(SearchProductsActivity.this,ProductDetailsActivity.class);
-                        intent.putExtra("pid",model.getPid());
-                        startActivity(intent);
-                    }
-                });
+                Log.e("AG", "onChildAdded:" + new Gson().toJson(message));
             }
 
-            @NonNull
             @Override
-            public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.products_items_layout, parent, false);
-                ProductViewHolder holder = new ProductViewHolder(view);
-                return holder;
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         };
-        searchList.setAdapter(adapter);
-        adapter.startListening();
+        reference.addChildEventListener(childEventListener);
+        mChildEventListener = childEventListener;
     }
 }
