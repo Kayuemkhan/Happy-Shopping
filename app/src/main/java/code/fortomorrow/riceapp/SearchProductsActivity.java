@@ -35,7 +35,7 @@ import code.fortomorrow.riceapp.ViewHolder.ProductViewHolder;
 public class SearchProductsActivity extends AppCompatActivity {
 
     private EditText inputText;
-    private RecyclerView searchList;
+    private RecyclerView search_list;
     private String SearchInput;
     private ImageView BackBtn;
     private ArrayList<Orders> messageList;
@@ -52,10 +52,46 @@ public class SearchProductsActivity extends AppCompatActivity {
         });
         messageList = new ArrayList<>();
         inputText = findViewById(R.id.search_product_name);
-        searchList = findViewById(R.id.search_list);
-        searchList.setLayoutManager(new LinearLayoutManager(this));
-        searchList.setHasFixedSize(true);
+        search_list = findViewById(R.id.search_list);
+        search_list.setLayoutManager(new LinearLayoutManager(this));
+        search_list.setHasFixedSize(true);
+        //startListening();
 
+    }
+
+    private void startListening() {
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Products");
+        ChildEventListener childEventListener = new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String previousChildName) {
+                Orders message = dataSnapshot.getValue(Orders.class);
+                messageList.add(message);
+                search_list.setAdapter(new OrderAdapters(getApplicationContext(),messageList));
+                Log.e("AG", "onChildAdded:" + new Gson().toJson(message));
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        };
+        reference.addChildEventListener(childEventListener);
+        mChildEventListener = childEventListener;
     }
 
     @Override
@@ -67,9 +103,8 @@ public class SearchProductsActivity extends AppCompatActivity {
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String previousChildName) {
                 Orders message = dataSnapshot.getValue(Orders.class);
                 messageList.add(message);
-                OrderAdapters orderAdapters = new OrderAdapters(SearchProductsActivity.this,messageList);
-                searchList.setAdapter(orderAdapters);
 
+                search_list.setAdapter(new OrderAdapters(getApplicationContext(),messageList));
                 Log.e("AG", "onChildAdded:" + new Gson().toJson(message));
             }
 
