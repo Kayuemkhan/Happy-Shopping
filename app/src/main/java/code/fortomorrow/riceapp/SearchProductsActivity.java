@@ -8,29 +8,24 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import code.fortomorrow.riceapp.Adapters.OrderAdapters;
 import code.fortomorrow.riceapp.Model.Orders;
-import code.fortomorrow.riceapp.ViewHolder.ProductViewHolder;
 
 public class SearchProductsActivity extends AppCompatActivity {
 
@@ -38,73 +33,55 @@ public class SearchProductsActivity extends AppCompatActivity {
     private RecyclerView search_list;
     private String SearchInput;
     private ImageView BackBtn;
-    private ArrayList<Orders> messageList;
+    private ArrayList<Orders> itemlist;
     private ChildEventListener mChildEventListener;
+    private DatabaseReference reference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_products);
 
         BackBtn = findViewById(R.id.Search_Back);
-        BackBtn.setOnClickListener(v->{
-            startActivity(new Intent(this,HomeActivity.class));
+        BackBtn.setOnClickListener(v -> {
+            startActivity(new Intent(this, HomeActivity.class));
             finish();
         });
-        messageList = new ArrayList<>();
+        itemlist = new ArrayList<>();
         inputText = findViewById(R.id.search_product_name);
         search_list = findViewById(R.id.search_list);
         search_list.setLayoutManager(new LinearLayoutManager(this));
         search_list.setHasFixedSize(true);
-        //startListening();
+        inputText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                checkavaility(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
     }
 
-    private void startListening() {
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Products");
-        ChildEventListener childEventListener = new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String previousChildName) {
-                Orders message = dataSnapshot.getValue(Orders.class);
-                messageList.add(message);
-                search_list.setAdapter(new OrderAdapters(getApplicationContext(),messageList));
-                Log.e("AG", "onChildAdded:" + new Gson().toJson(message));
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        };
-        reference.addChildEventListener(childEventListener);
-        mChildEventListener = childEventListener;
-    }
 
     @Override
     protected void onStart() {
         super.onStart();
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Products");
+        reference = FirebaseDatabase.getInstance().getReference().child("Products");
         ChildEventListener childEventListener = new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String previousChildName) {
                 Orders message = dataSnapshot.getValue(Orders.class);
-                messageList.add(message);
+                itemlist.add(message);
 
-                search_list.setAdapter(new OrderAdapters(getApplicationContext(),messageList));
+                search_list.setAdapter(new OrderAdapters(getApplicationContext(), itemlist));
                 Log.e("AG", "onChildAdded:" + new Gson().toJson(message));
             }
 
@@ -130,5 +107,20 @@ public class SearchProductsActivity extends AppCompatActivity {
         };
         reference.addChildEventListener(childEventListener);
         mChildEventListener = childEventListener;
+    }
+
+    private void checkavaility(String s) {
+        ArrayList<Orders> ordersList = new ArrayList<>();
+        if (!s.isEmpty()) {
+            ordersList.clear();
+            for (int i = 0; i < itemlist.size(); i++) {
+                if (itemlist.get(i).getPname().toLowerCase().startsWith(s.toLowerCase()) || itemlist.get(i).getPrice().toLowerCase().startsWith(s.toLowerCase())) {
+                    ordersList.add(itemlist.get(i));
+                }
+            }
+            search_list.setAdapter(new OrderAdapters(getApplicationContext(), ordersList));
+        } else {
+            search_list.setAdapter(new OrderAdapters(getApplicationContext(), itemlist));
+        }
     }
 }
