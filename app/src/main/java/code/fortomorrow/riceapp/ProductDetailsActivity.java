@@ -39,8 +39,6 @@ public class ProductDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_product_details);
 
         productID = getIntent().getStringExtra("pid");
-
-
         addToCartBtn = findViewById(R.id.pd_add_to_cart_button);
         numberButton = findViewById(R.id.number_btn);
         productImage = findViewById(R.id.product_image_details);
@@ -132,8 +130,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
                     productPrice.setText(products.getPrice());
                     productDescription.setText(products.getDescription());
                     Picasso.get().load(products.getImage()).into(productImage);
-
-
+                    
                 }
             }
 

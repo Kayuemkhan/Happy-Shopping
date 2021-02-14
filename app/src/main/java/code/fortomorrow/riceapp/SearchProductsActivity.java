@@ -22,7 +22,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import code.fortomorrow.riceapp.Adapters.OrderAdapters;
 import code.fortomorrow.riceapp.Model.Orders;
@@ -81,7 +80,7 @@ public class SearchProductsActivity extends AppCompatActivity {
                 Orders message = dataSnapshot.getValue(Orders.class);
                 itemlist.add(message);
 
-                search_list.setAdapter(new OrderAdapters(getApplicationContext(), itemlist));
+                search_list.setAdapter(new OrderAdapters(getApplicationContext(), itemlist,SearchProductsActivity.this));
                 Log.e("AG", "onChildAdded:" + new Gson().toJson(message));
             }
 
@@ -118,9 +117,9 @@ public class SearchProductsActivity extends AppCompatActivity {
                     ordersList.add(itemlist.get(i));
                 }
             }
-            search_list.setAdapter(new OrderAdapters(getApplicationContext(), ordersList));
+            search_list.setAdapter(new OrderAdapters(getApplicationContext(), ordersList, SearchProductsActivity.this));
         } else {
-            search_list.setAdapter(new OrderAdapters(getApplicationContext(), itemlist));
+            search_list.setAdapter(new OrderAdapters(getApplicationContext(), itemlist, SearchProductsActivity.this));
         }
     }
 }
