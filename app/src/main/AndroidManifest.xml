@@ -11,7 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
-        <activity android:name=".Aboutpage"></activity>
+        <activity android:name=".MyOrdersActivity"></activity>
+        <activity android:name=".Aboutpage" />
         <activity android:name=".CategoryItemActivity" />
         <activity android:name=".ConfirmFinalOrderActivity" />
         <activity android:name=".ProductDetailsActivity" />

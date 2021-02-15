@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MyOrdersActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/toolbar_myorders"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:elevation="4dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        >
+        <LinearLayout
+            android:layout_marginTop="6dp"
+            android:weightSum="2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:gravity="center"
+                android:drawableLeft="@drawable/ic_cart"
+                android:layout_marginTop="5dp"
+                android:layout_weight="2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="\tMy Orders"
+                android:textStyle="bold"
+                android:textColor="@color/White"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                />
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
+</LinearLayout>

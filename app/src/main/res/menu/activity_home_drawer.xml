@@ -2,41 +2,65 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
-
-    <group android:checkableBehavior="single">
+    <group
+        android:id="@+id/nav_cartttt"
+        android:checkableBehavior="single">
         <item
 
             android:id="@+id/nav_cart"
-            android:title="Cart"
             android:icon="@drawable/ic_cart"
             android:iconTint="@color/White"
-            />
+            android:title="Cart" />
+    </group>
+    <group
+        android:id="@+id/nav_searchs"
+        android:checkableBehavior="single">
         <item
             android:id="@+id/nav_search"
-            android:title="Search Items"
             android:icon="@drawable/ic_search"
             android:iconTint="@color/White"
-            />
+            android:title="Search Items" />
 
+    </group>
+    <group
+        android:id="@+id/nav_settingss"
+        android:checkableBehavior="single">
         <item
             android:id="@+id/nav_settings"
-            android:title="Settings"
             android:icon="@drawable/ic_settings"
             android:iconTint="@color/White"
-            />
+            android:title="Settings" />
+
+    </group>
+    <group
+        android:id="@+id/nav_logoutt"
+        android:checkableBehavior="single">
         <item
             android:id="@+id/nav_logout"
-            android:title="Log Out"
             android:icon="@drawable/ic_exit_to_app"
             android:iconTint="@color/White"
-            />
+            android:title="Log Out" />
+    </group>
+
+    <group
+        android:id="@+id/myorders"
+        android:checkableBehavior="single">
+
         <item
-            android:id="@+id/about"
-            android:title="About"
+            android:id="@+id/myordersss"
             android:icon="@drawable/ic_sticky_note"
             android:iconTint="@color/White"
-            />
+            android:title="My Orders" />
+    </group>
+    <group
+        android:id="@+id/abouty"
+        android:checkableBehavior="single">
 
+        <item
+            android:id="@+id/about"
+            android:icon="@drawable/ic_sticky_note"
+            android:iconTint="@color/White"
+            android:title="About" />
     </group>
 
 
