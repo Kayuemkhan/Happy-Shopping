@@ -56,6 +56,30 @@
                 android:text="$ Product Price"
                 android:textColor="@color/Black"
                 android:textSize="15sp" />
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/product_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:text="\tShipped"
+                android:background="@color/blue_50"
+                android:textStyle="bold"
+                android:padding="2dp"
+                android:textColor="@color/MediumSpringGreen"
+                android:textSize="15sp" />
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/product_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:text="\tShipped"
+                android:background="@color/blue_50"
+                android:textStyle="bold"
+                android:padding="2dp"
+                android:textColor="@color/MediumSpringGreen"
+                android:textSize="15sp" />
 
         </LinearLayout>
 

@@ -31,7 +31,7 @@ public class SearchProductsActivity extends AppCompatActivity {
     private EditText inputText;
     private RecyclerView search_list;
     private String SearchInput;
-    private ImageView BackBtn;
+    private ImageView backBtn;
     private ArrayList<Orders> itemlist;
     private ChildEventListener mChildEventListener;
     private DatabaseReference reference;
@@ -41,8 +41,8 @@ public class SearchProductsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_products);
 
-        BackBtn = findViewById(R.id.Search_Back);
-        BackBtn.setOnClickListener(v -> {
+        backBtn = findViewById(R.id.Search_Back);
+        backBtn.setOnClickListener(v -> {
             startActivity(new Intent(this, HomeActivity.class));
             finish();
         });

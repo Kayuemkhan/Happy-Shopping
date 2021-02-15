@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MyOrdersActivity">
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
@@ -35,4 +36,10 @@
                 />
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/myordersRV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/products_items_layout"
+        />
 </LinearLayout>

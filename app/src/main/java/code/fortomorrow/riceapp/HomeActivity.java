@@ -47,9 +47,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_home);
         ProductsRef = FirebaseDatabase.getInstance().getReference().child("Products");
 
-
-
-
         Paper.init(this);
 
         recyclerView = findViewById(R.id.recyler_menu);
