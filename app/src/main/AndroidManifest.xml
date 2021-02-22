@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="code.fortomorrow.riceapp">
+    package="code.fortomorrow.happyshopping">
 
     <application
         android:allowBackup="true"
@@ -11,24 +11,24 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
-        <activity android:name=".MyOrdersActivity"></activity>
-        <activity android:name=".Aboutpage" />
-        <activity android:name=".CategoryItemActivity" />
-        <activity android:name=".ConfirmFinalOrderActivity" />
-        <activity android:name=".ProductDetailsActivity" />
-        <activity android:name=".SettinsActivity" />
-        <activity android:name=".SearchProductsActivity" />
-        <activity android:name=".CartActivity" />
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name="code.fortomorrow.happyshopping.MyOrdersActivity"></activity>
+        <activity android:name="code.fortomorrow.happyshopping.Aboutpage" />
+        <activity android:name="code.fortomorrow.happyshopping.CategoryItemActivity" />
+        <activity android:name="code.fortomorrow.happyshopping.ConfirmFinalOrderActivity" />
+        <activity android:name="code.fortomorrow.happyshopping.ProductDetailsActivity" />
+        <activity android:name="code.fortomorrow.happyshopping.SettinsActivity" />
+        <activity android:name="code.fortomorrow.happyshopping.SearchProductsActivity" />
+        <activity android:name="code.fortomorrow.happyshopping.CartActivity" />
+        <activity android:name="code.fortomorrow.happyshopping.HomeActivity" />
+        <activity android:name="code.fortomorrow.happyshopping.RegisterActivity" />
+        <activity android:name="code.fortomorrow.happyshopping.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name="code.fortomorrow.happyshopping.MainActivity" />
     </application>
 
 </manifest>

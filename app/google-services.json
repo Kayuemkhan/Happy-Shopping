@@ -1,34 +1,33 @@
 {
   "project_info": {
-    "project_number": "65834630365",
-    "firebase_url": "https://rice-app-3a405.firebaseio.com",
-    "project_id": "rice-app-3a405",
-    "storage_bucket": "rice-app-3a405.appspot.com"
+    "project_number": "717141338848",
+    "project_id": "happy-shopping-7e1d3",
+    "storage_bucket": "happy-shopping-7e1d3.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:65834630365:android:5af203ce8e6648429b6f34",
+        "mobilesdk_app_id": "1:717141338848:android:b36b80895d3f952522be85",
         "android_client_info": {
-          "package_name": "code.fortomorrow.riceapp"
+          "package_name": "code.fortomorrow.happyshopping"
         }
       },
       "oauth_client": [
         {
-          "client_id": "65834630365-kfi2s7lplr08khn10f2ikbsiv3ojical.apps.googleusercontent.com",
+          "client_id": "717141338848-eglpe2nbiirh5vp9jupm3d03r983ni9i.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD4n55Fdt2XTOiHTRpB5IYBXKw3twLUlWU"
+          "current_key": "AIzaSyBtAFXbgKp3for1SkI28Fj3iVMXOZ42om0"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "65834630365-kfi2s7lplr08khn10f2ikbsiv3ojical.apps.googleusercontent.com",
+              "client_id": "717141338848-eglpe2nbiirh5vp9jupm3d03r983ni9i.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

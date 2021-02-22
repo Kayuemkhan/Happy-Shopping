@@ -40,6 +40,6 @@
         android:id="@+id/myordersRV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/products_items_layout"
+        tools:listitem="@layout/singlemyorders"
         />
 </LinearLayout>
