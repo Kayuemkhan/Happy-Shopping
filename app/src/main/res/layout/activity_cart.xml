@@ -23,7 +23,8 @@
             android:textSize="20sp"
             android:height="50dp"
             android:textAlignment="textStart"
-            android:gravity="center" />
+            android:gravity="center"
+            tools:ignore="RtlCompat" />
     </RelativeLayout>
 
     <TextView
