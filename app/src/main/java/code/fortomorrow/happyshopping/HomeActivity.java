@@ -27,8 +27,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
-import code.fortomorrow.happyshopping.Prevalent.Prevalent;
-import code.fortomorrow.happyshopping.ViewHolder.ProductViewHolder;
+import code.fortomorrow.happyshopping.prevalent.Prevalent;
+import code.fortomorrow.happyshopping.view_holder.ProductViewHolder;
 import de.hdodenhof.circleimageview.CircleImageView;
 import io.paperdb.Paper;
 
@@ -84,8 +84,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         userNameTextView = headerView.findViewById(R.id.user_profile_name);
         CircleImageView profileImageView = headerView.findViewById(R.id.user_profile_image);
 
-        userNameTextView.setText(Prevalent.currentOnlineUser.getName());
-        Picasso.get().load(Prevalent.currentOnlineUser.getImage()).placeholder(R.drawable.profile).into(profileImageView);
+        userNameTextView.setText(Prevalent.currentOnlineUser.name);
+        Picasso.get().load(Prevalent.currentOnlineUser.image).placeholder(R.drawable.profile).into(profileImageView);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             toggle.getDrawerArrowDrawable().setColor(getColor(R.color.colorPrimary));
         } else {

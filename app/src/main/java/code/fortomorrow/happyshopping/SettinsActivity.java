@@ -31,7 +31,7 @@ import com.theartofdev.edmodo.cropper.CropImage;
 
 import java.util.HashMap;
 
-import code.fortomorrow.happyshopping.Prevalent.Prevalent;
+import code.fortomorrow.happyshopping.prevalent.Prevalent;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class SettinsActivity extends AppCompatActivity {
@@ -56,7 +56,7 @@ public class SettinsActivity extends AppCompatActivity {
         profileImageView = (CircleImageView) findViewById(R.id.settings_profile_image);
         fullNameEditText = (EditText) findViewById(R.id.settings_full_name);
         userPhoneEditText = (EditText) findViewById(R.id.settings_phone_number);
-        userPhoneEditText.setText(Prevalent.currentOnlineUser.getPhone());
+        userPhoneEditText.setText(Prevalent.currentOnlineUser.phone);
         addressEditText = (EditText) findViewById(R.id.settings_address);
         profileChangeTextBtn = (TextView) findViewById(R.id.profile_image_change_btn);
         closeTextBtn = (TextView) findViewById(R.id.close_settings_btn);
@@ -105,7 +105,7 @@ public class SettinsActivity extends AppCompatActivity {
         userMap.put("address",addressEditText.getText().toString());
         userMap.put("phoneOrder",userPhoneEditText.getText().toString());
 
-        ref.child(Prevalent.currentOnlineUser.getPhone()).updateChildren(userMap);
+        ref.child(Prevalent.currentOnlineUser.phone).updateChildren(userMap);
 
 
         startActivity(new Intent(SettinsActivity.this,HomeActivity.class));
@@ -155,7 +155,7 @@ public class SettinsActivity extends AppCompatActivity {
 
         if(imageUri != null){
             final StorageReference fileRef = storageProfilePrictureRef
-                    .child(Prevalent.currentOnlineUser.getPhone()+ ".jpg");
+                    .child(Prevalent.currentOnlineUser.phone + ".jpg");
             uploadTask = fileRef.putFile(imageUri);
             uploadTask.continueWithTask(new Continuation() {
                 @Override
@@ -179,7 +179,7 @@ public class SettinsActivity extends AppCompatActivity {
                                 userMap.put("address",addressEditText.getText().toString());
                                 userMap.put("phoneOrder",userPhoneEditText.getText().toString());
                                 userMap.put("image",myUrl);
-                                ref.child(Prevalent.currentOnlineUser.getPhone()).updateChildren(userMap);
+                                ref.child(Prevalent.currentOnlineUser.phone).updateChildren(userMap);
 
                                 progressDialog.dismiss();
                                 startActivity(new Intent(SettinsActivity.this,HomeActivity.class));
@@ -200,7 +200,7 @@ public class SettinsActivity extends AppCompatActivity {
     }
 
     private void userInfoDisplay(final CircleImageView profileImageView, final EditText fullNameEditText, final EditText userPhoneEditText, final EditText addressEditText) {
-        DatabaseReference UsersRef = FirebaseDatabase.getInstance().getReference().child("Users").child(Prevalent.currentOnlineUser.getPhone());
+        DatabaseReference UsersRef = FirebaseDatabase.getInstance().getReference().child("Users").child(Prevalent.currentOnlineUser.phone);
 
         UsersRef.addValueEventListener(new ValueEventListener() {
             @Override

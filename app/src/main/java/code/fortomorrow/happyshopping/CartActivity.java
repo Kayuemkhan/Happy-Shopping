@@ -16,8 +16,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -26,9 +24,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import code.fortomorrow.happyshopping.Model.Cart;
-import code.fortomorrow.happyshopping.Prevalent.Prevalent;
-import code.fortomorrow.happyshopping.ViewHolder.CartViewHolder;
+import code.fortomorrow.happyshopping.model.Cart;
+import code.fortomorrow.happyshopping.prevalent.Prevalent;
+import code.fortomorrow.happyshopping.view_holder.CartViewHolder;
 
 public class CartActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
@@ -74,19 +72,19 @@ public class CartActivity extends AppCompatActivity {
         final DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart List");
         FirebaseRecyclerOptions<Cart> options= new FirebaseRecyclerOptions.Builder<Cart>()
                 .setQuery(cartListRef.child("User View")
-                                .child(Prevalent.currentOnlineUser.getPhone())
+                                .child(Prevalent.currentOnlineUser.phone)
                                 .child("Products"),
                         Cart.class).build();
         FirebaseRecyclerAdapter<Cart, CartViewHolder> adapter=
                 new FirebaseRecyclerAdapter<Cart, CartViewHolder>(options) {
                     @Override
                     protected void onBindViewHolder(@NonNull CartViewHolder holder, int position, @NonNull final Cart model) {
-                        holder.txtProductQuantity.setText("Quantity: "+model.getQuantity());
-                        holder.txtProductPrice.setText("Price: "+model.getPrice()+"$");
-                        holder.txtProductName.setText("Name: "+model.getPname());
+                        holder.txtProductQuantity.setText("Quantity: "+ model.quantity);
+                        holder.txtProductPrice.setText("Price: "+ model.price +"$");
+                        holder.txtProductName.setText("Name: "+ model.pname);
 
                         // Calculating the product with respect to quantity
-                        int oneTypeProductPrice = ((Integer.valueOf(model.getPrice()))) * ((Integer.valueOf(model.getQuantity())));
+                        int oneTypeProductPrice = ((Integer.valueOf(model.price))) * ((Integer.valueOf(model.quantity)));
                         overTotalPrice = overTotalPrice + oneTypeProductPrice;
                         txtTotalAmount.setText("Total Price = "+String.valueOf(overTotalPrice)+"$");
 
@@ -107,14 +105,14 @@ public class CartActivity extends AppCompatActivity {
                                     public void onClick(DialogInterface dialog, int i) {
                                         if(i ==0){
                                             Intent intent = new Intent(CartActivity.this,ProductDetailsActivity.class);
-                                            intent.putExtra("pid",model.getPid());
+                                            intent.putExtra("pid", model.pid);
                                             startActivity(intent);
                                         }
                                         if(i==1){
                                             cartListRef.child("User View")
-                                                    .child(Prevalent.currentOnlineUser.getPhone())
+                                                    .child(Prevalent.currentOnlineUser.phone)
                                                     .child("Products")
-                                                    .child(model.getPid())
+                                                    .child(model.pid)
                                                     .removeValue()
                                                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                                                         @Override
@@ -151,7 +149,7 @@ public class CartActivity extends AppCompatActivity {
     }
     private void CheckOrderState(){
         DatabaseReference orderRefs;
-        orderRefs = FirebaseDatabase.getInstance().getReference().child("Orders").child(Prevalent.currentOnlineUser.getPhone());
+        orderRefs = FirebaseDatabase.getInstance().getReference().child("Orders").child(Prevalent.currentOnlineUser.phone);
         orderRefs.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

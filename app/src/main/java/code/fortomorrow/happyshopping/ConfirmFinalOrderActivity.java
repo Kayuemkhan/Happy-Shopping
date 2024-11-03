@@ -23,8 +23,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 
-import code.fortomorrow.happyshopping.Model.Users;
-import code.fortomorrow.happyshopping.Prevalent.Prevalent;
+import code.fortomorrow.happyshopping.model.Users;
+import code.fortomorrow.happyshopping.prevalent.Prevalent;
 
 public class ConfirmFinalOrderActivity extends AppCompatActivity {
     private EditText nameEditText, phoneEditText, addressEditText, cityEditText;
@@ -46,11 +46,11 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
         phoneEditText = findViewById(R.id.shippment_phone_number);
         addressEditText = findViewById(R.id.shippment_address);
         cityEditText = findViewById(R.id.shipment_city);
-        final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child(Prevalent.currentOnlineUser.getPhone());
+        final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child(Prevalent.currentOnlineUser.phone);
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String name = dataSnapshot.getValue(Users.class).getName();
+                String name = dataSnapshot.getValue(Users.class).name;
                 nameEditText.setText(name);
             }
 
@@ -98,7 +98,7 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
 
         final DatabaseReference ordersRef = FirebaseDatabase.getInstance().getReference()
                 .child("Orders")
-                .child(Prevalent.currentOnlineUser.getPhone());
+                .child(Prevalent.currentOnlineUser.phone);
         HashMap<String,Object> ordersMap = new HashMap<>();
         ordersMap.put("totalAmount",totalAmount);
         ordersMap.put("name",nameEditText.getText().toString());
@@ -117,7 +117,7 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
                     FirebaseDatabase.getInstance().getReference()
                             .child("Cart List")
                             .child("User View")
-                            .child(Prevalent.currentOnlineUser.getPhone())
+                            .child(Prevalent.currentOnlineUser.phone)
                             .removeValue()
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override

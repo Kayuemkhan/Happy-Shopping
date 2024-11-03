@@ -23,8 +23,8 @@ import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
-import code.fortomorrow.happyshopping.Adapters.OrderAdapters;
-import code.fortomorrow.happyshopping.Model.Orders;
+import code.fortomorrow.happyshopping.adapters.OrderAdapters;
+import code.fortomorrow.happyshopping.model.Orders;
 
 public class SearchProductsActivity extends AppCompatActivity {
 
@@ -113,7 +113,7 @@ public class SearchProductsActivity extends AppCompatActivity {
         if (!s.isEmpty()) {
             ordersList.clear();
             for (int i = 0; i < itemlist.size(); i++) {
-                if (itemlist.get(i).getPname().toLowerCase().startsWith(s.toLowerCase()) || itemlist.get(i).getPrice().toLowerCase().startsWith(s.toLowerCase())) {
+                if (itemlist.get(i).pname.toLowerCase().startsWith(s.toLowerCase()) || itemlist.get(i).price.toLowerCase().startsWith(s.toLowerCase())) {
                     ordersList.add(itemlist.get(i));
                 }
             }

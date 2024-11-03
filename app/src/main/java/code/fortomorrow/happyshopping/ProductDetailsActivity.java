@@ -25,7 +25,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 
-import code.fortomorrow.happyshopping.Prevalent.Prevalent;
+import code.fortomorrow.happyshopping.prevalent.Prevalent;
 
 public class ProductDetailsActivity extends AppCompatActivity {
     private ImageView productImage;
@@ -87,14 +87,14 @@ public class ProductDetailsActivity extends AppCompatActivity {
         cartMap.put("quantity",numberButton.getNumber());
         cartMap.put("discount","");
 
-        cartListRef.child("User View").child(Prevalent.currentOnlineUser.getPhone()).child("Products")
+        cartListRef.child("User View").child(Prevalent.currentOnlineUser.phone).child("Products")
                 .child(productID)
                 .updateChildren(cartMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
-                            cartListRef.child("Admin View").child(Prevalent.currentOnlineUser.getPhone())
+                            cartListRef.child("Admin View").child(Prevalent.currentOnlineUser.phone)
                                     .child("Products")
                                     .child(productID)
                                     .updateChildren(cartMap)
@@ -142,7 +142,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
     }
     private void CheckOrderState(){
         DatabaseReference orderRefs;
-        orderRefs = FirebaseDatabase.getInstance().getReference().child("Orders").child(Prevalent.currentOnlineUser.getPhone());
+        orderRefs = FirebaseDatabase.getInstance().getReference().child("Orders").child(Prevalent.currentOnlineUser.phone);
         orderRefs.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

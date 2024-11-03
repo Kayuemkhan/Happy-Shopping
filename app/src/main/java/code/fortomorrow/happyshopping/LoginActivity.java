@@ -19,8 +19,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import code.fortomorrow.happyshopping.Model.Users;
-import code.fortomorrow.happyshopping.Prevalent.Prevalent;
+import code.fortomorrow.happyshopping.model.Users;
+import code.fortomorrow.happyshopping.prevalent.Prevalent;
 import io.paperdb.Paper;
 
 public class LoginActivity extends AppCompatActivity {
@@ -112,8 +112,8 @@ public class LoginActivity extends AppCompatActivity {
                 if(dataSnapshot.child(parentDbName).child(phone).exists()){
                     Users usersData = dataSnapshot.child(parentDbName).child(phone).getValue(Users.class);
 
-                    if(usersData.getPhone().equals(phone)){
-                        if(usersData.getPassword().equals(password)){
+                    if(usersData.phone.equals(phone)){
+                        if(usersData.password.equals(password)){
                        if (parentDbName.equals("Users")) {
                                 loadingBar1.dismiss();
                                 Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
@@ -151,8 +151,8 @@ public class LoginActivity extends AppCompatActivity {
                 if(dataSnapshot.child("Users").child(phone).exists()){
                     Users usersData = dataSnapshot.child("Users").child(phone).getValue(Users.class);
 
-                    if(usersData.getPhone().equals(phone)){
-                        if(usersData.getPassword().equals(password)){
+                    if(usersData.phone.equals(phone)){
+                        if(usersData.password.equals(password)){
                             loadingBar1.dismiss();
                             Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
                             Prevalent.currentOnlineUser = usersData;

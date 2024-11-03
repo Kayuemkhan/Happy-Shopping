@@ -19,9 +19,9 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.List;
 
-import code.fortomorrow.happyshopping.Adapters.MyAllOrdersAdapters;
-import code.fortomorrow.happyshopping.Model.AdminViewOrders;
-import code.fortomorrow.happyshopping.Prevalent.Prevalent;
+import code.fortomorrow.happyshopping.adapters.MyAllOrdersAdapters;
+import code.fortomorrow.happyshopping.model.AdminViewOrders;
+import code.fortomorrow.happyshopping.prevalent.Prevalent;
 import io.paperdb.Paper;
 
 public class MyOrdersActivity extends AppCompatActivity {
@@ -37,7 +37,7 @@ public class MyOrdersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_orders);
         Paper.init(this);
-        currentUser = Prevalent.currentOnlineUser.getPhone();
+        currentUser = Prevalent.currentOnlineUser.phone;
         ordersList2 = new ArrayList<>();
         myordersRV = findViewById(R.id.myordersRV);
         myordersRV.setLayoutManager(new LinearLayoutManager(this));
