@@ -20,7 +20,8 @@
         <activity android:name="code.fortomorrow.happyshopping.CartActivity" />
         <activity android:name="code.fortomorrow.happyshopping.HomeActivity" />
         <activity android:name="code.fortomorrow.happyshopping.RegisterActivity" />
-        <activity android:name="code.fortomorrow.happyshopping.LoginActivity">
+        <activity android:name="code.fortomorrow.happyshopping.LoginActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -11,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -29,7 +28,7 @@ import code.fortomorrow.happyshopping.prevalent.Prevalent;
 
 public class ProductDetailsActivity extends AppCompatActivity {
     private ImageView productImage;
-    private ElegantNumberButton numberButton;
+    private Button numberButton;
     private TextView productPrice, productDescription, productName;
     private Button addToCartBtn;
     private String productID = "",state = "normal";
@@ -84,7 +83,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         cartMap.put("price",productPrice.getText().toString().toString());
         cartMap.put("date",saveCurrentDate);
         cartMap.put("time",saveCurrentTime);
-        cartMap.put("quantity",numberButton.getNumber());
+        cartMap.put("quantity",numberButton.getText().toString());
         cartMap.put("discount","");
 
         cartListRef.child("User View").child(Prevalent.currentOnlineUser.phone).child("Products")
