@@ -4,4 +4,7 @@
     <string name="navigation_drawer_close">Close Navigation Drawer</string>
     <string name="search_product_here">Search product by name or price</string>
     <string name="plus">+</string>
+    <string name="tshipped">\tShipped</string>
+    <string name="product_name">Product Name</string>
+    <string name="add_to_cart">Add to Cart</string>
 </resources>

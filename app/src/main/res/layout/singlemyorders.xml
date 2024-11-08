@@ -1,69 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
+    android:layout_margin="12dp"
     android:padding="20dp"
-    app:cardCornerRadius="5dp"
-    app:cardElevation="5dp">
+    app:cardCornerRadius="8dp"
+    app:cardElevation="6dp">
 
+    <!-- Main container for the card content -->
     <LinearLayout
+        android:padding="15dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="0dp"
+        <!-- Title section -->
+        <TextView
+            android:id="@+id/card_title"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_marginBottom="8dp"
+            android:text="Order Details"
+            android:textColor="@color/Black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textAllCaps="true" />
 
-            <TextView
-                android:id="@+id/product_name"
-                android:layout_width="match_parent"
+        <!-- Content section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Product Info Section -->
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Product Name"
-                android:textColor="@color/Black"
-                android:textSize="15sp"
-                android:textStyle="bold" />
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/product_price"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-light"
-                android:text="$ Product Price"
-                android:textColor="@color/Black"
-                android:textSize="15sp" />
+                <TextView
+                    android:id="@+id/product_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Product Name"
+                    android:textColor="@color/Black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/product_status"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/blue_50"
-                android:fontFamily="sans-serif-light"
-                android:padding="2dp"
-                android:text="\tShipped"
-                android:textColor="@color/MediumSpringGreen"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:visibility="gone" />
+                <TextView
+                    android:id="@+id/product_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="$ Product Price"
+                    android:textColor="@color/Black"
+                    android:textSize="14sp" />
 
-            <TextView
-                android:id="@+id/product_date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-light"
-                android:padding="2dp"
-                android:text="\tShipped"
-                android:textColor="@color/MediumSpringGreen"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:visibility="visible" />
+                <TextView
+                    android:id="@+id/product_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:padding="4dp"
+                    android:text="Shipped"
+                    android:textColor="@color/MediumSpringGreen"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:visibility="visible" />
 
+                <TextView
+                    android:id="@+id/product_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Date: June 10, 2024"
+                    android:textColor="@color/Gray"
+                    android:textSize="13sp" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
