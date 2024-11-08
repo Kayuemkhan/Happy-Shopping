@@ -83,10 +83,10 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void validatephoneNumber(final String name, final String phone, final String password) {
-        final DatabaseReference Rootref;
-        Rootref = FirebaseDatabase.getInstance().getReference();
+        final DatabaseReference databaseReference;
+        databaseReference = FirebaseDatabase.getInstance().getReference();
 
-        Rootref.addListenerForSingleValueEvent(new ValueEventListener() {
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(!(dataSnapshot.child("Users").child(phone).exists())){
@@ -95,7 +95,7 @@ public class RegisterActivity extends AppCompatActivity {
                     userDataMap.put("password",password);
                     userDataMap.put("name",name);
 
-                    Rootref.child("Users").child(phone).updateChildren(userDataMap)
+                    databaseReference.child("Users").child(phone).updateChildren(userDataMap)
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {

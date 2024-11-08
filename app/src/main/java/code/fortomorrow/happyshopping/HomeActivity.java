@@ -17,7 +17,9 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -28,6 +30,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import code.fortomorrow.happyshopping.prevalent.Prevalent;
+import code.fortomorrow.happyshopping.utils.SpacesItemDecoration;
 import code.fortomorrow.happyshopping.view_holder.ProductViewHolder;
 import de.hdodenhof.circleimageview.CircleImageView;
 import io.paperdb.Paper;
@@ -45,14 +48,18 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_home);
         ProductsRef = FirebaseDatabase.getInstance().getReference().child("Products");
 
+
         Paper.init(this);
 
         recyclerView = findViewById(R.id.recyler_menu);
         recyclerView.setHasFixedSize(true);
         //recyclerView.setHasFixedSize(true);
         layoutManager = new GridLayoutManager(this,2);
-        //recyclerView.addItemDecoration(new SpacesItemDecoration(10));
-        recyclerView.setLayoutManager(layoutManager);
+//        recyclerView.addItemDecoration(new SpacesItemDecoration(10));
+        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL);
+
+
+        recyclerView.setLayoutManager(staggeredGridLayoutManager);
 
 //        cart = findViewById(R.id.cart);
 //        cart.setOnClickListener(new View.OnClickListener() {
@@ -86,11 +93,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         userNameTextView.setText(Prevalent.currentOnlineUser.name);
         Picasso.get().load(Prevalent.currentOnlineUser.image).placeholder(R.drawable.profile).into(profileImageView);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            toggle.getDrawerArrowDrawable().setColor(getColor(R.color.colorPrimary));
-        } else {
-            toggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.colorPrimary));
-        }
+        toggle.getDrawerArrowDrawable().setColor(getColor(R.color.colorPrimary));
 
     }
 
@@ -174,8 +177,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
                     {
                         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.home_products_layout, parent, false);
-                        ProductViewHolder holder = new ProductViewHolder(view);
-                        return holder;
+                        return new ProductViewHolder(view);
                     }
                 };
         recyclerView.setAdapter(adapter);
