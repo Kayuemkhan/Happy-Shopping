@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import code.fortomorrow.happyshopping.model.AdminViewOrders
-import code.fortomorrow.happyshopping.MyOrdersActivity
+import code.fortomorrow.happyshopping.view.MyOrdersActivity
 import code.fortomorrow.happyshopping.R
 
 class MyAllOrdersAdapters(myOrdersActivity: MyOrdersActivity, ordersList: List<AdminViewOrders>) :

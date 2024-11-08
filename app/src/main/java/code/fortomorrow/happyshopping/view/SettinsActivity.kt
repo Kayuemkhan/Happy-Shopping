@@ -1,4 +1,4 @@
-package code.fortomorrow.happyshopping
+package code.fortomorrow.happyshopping.view
 
 import android.app.ProgressDialog
 import android.content.Intent
@@ -11,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import code.fortomorrow.happyshopping.R
 import code.fortomorrow.happyshopping.prevalent.Prevalent
 import com.canhub.cropper.CropImageContract
 import com.canhub.cropper.CropImageContractOptions

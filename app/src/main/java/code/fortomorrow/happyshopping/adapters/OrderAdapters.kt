@@ -9,9 +9,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import code.fortomorrow.happyshopping.model.Orders
-import code.fortomorrow.happyshopping.ProductDetailsActivity
+import code.fortomorrow.happyshopping.view.ProductDetailsActivity
 import code.fortomorrow.happyshopping.R
-import code.fortomorrow.happyshopping.SearchProductsActivity
+import code.fortomorrow.happyshopping.view.SearchProductsActivity
 import com.bumptech.glide.Glide
 
 class OrderAdapters(

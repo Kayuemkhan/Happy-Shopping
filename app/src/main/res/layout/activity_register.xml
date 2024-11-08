@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:background="@color/White"
-    tools:context=".LoginActivity">
+    tools:context=".view.LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
